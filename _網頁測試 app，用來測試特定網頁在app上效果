@@ -1,0 +1,16 @@
+
+
+
+user 150G 
+	Usr > android SDK 15G	= 15
+	Usr > DL > Hadoop 21g	= 21
+	Usr > DL > OS 17G	= 17
+	Usr > lib 24G	= 24
+	vbox 60g	= 60
+
+user=60+15+21+17+24	= 137
+
+application 36g	= 36
+others 30	= 30
+
+36+30+user	= 203
