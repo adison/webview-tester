@@ -28,6 +28,7 @@ public class MainActivity extends ActionBarActivity {
         myWebview = (WebView)findViewById(R.id.aWebview);
         // 4.4以上可开启 REMOTE WEBVIEW DEBUG,
         // open a webview in devtools, chrome://inspect, and you should fine the device
+        // https://developer.chrome.com/devtools/docs/remote-debugging, SECTION: BROWSER TAB
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             if( 0 != (getApplicationInfo().flags &= ApplicationInfo.FLAG_DEBUGGABLE)) {
                 myWebview.setWebContentsDebuggingEnabled(true);
