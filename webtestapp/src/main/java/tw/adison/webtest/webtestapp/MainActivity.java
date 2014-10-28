@@ -1,5 +1,6 @@
 package tw.adison.webtest.webtestapp;
 
+import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -25,8 +26,12 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         myWebview = (WebView)findViewById(R.id.aWebview);
+        // 4.4以上可开启 REMOTE WEBVIEW DEBUG,
+        // open a webview in devtools, chrome://inspect, and you should fine the device
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            myWebview.setWebContentsDebuggingEnabled(true);
+            if( 0 != (getApplicationInfo().flags &= ApplicationInfo.FLAG_DEBUGGABLE)) {
+                myWebview.setWebContentsDebuggingEnabled(true);
+            }
         }
 
         // copy android web setting
@@ -43,6 +48,7 @@ public class MainActivity extends ActionBarActivity {
         noCache.put("Pragma", "no-cache");
         noCache.put("Cache-Control", "no-cache");
 
+        // 开启的网站
         String url = "https://google.com";
         myWebview.loadUrl(url, noCache);
 
